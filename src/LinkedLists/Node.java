@@ -1,2 +1,8 @@
-package LinkedLists;public class Node {
+package LinkedLists;
+
+public class Node {
+    public int value;
+    public Node next;
+
+
 }

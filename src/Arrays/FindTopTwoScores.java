@@ -1,24 +1,38 @@
 package Arrays;
 
-public class FintTopTwoScores {
+public class FindTopTwoScores {
 
-    public int[] findTopTwoScores(int[] array){
-        int [] topTwoArr = new int[1];
-        int [] topOneArr = new int[1];
-        for (int i = 0; i<array.length;i++){
-            for (int j = 1; i<array.length;i++){
-                if (array[j]>array[i]){
-                    topOneArr[0] = array[j];
-                    topTwoArr[0] = array[i];
-                } else{
-                    topOneArr[0] = array[i];
-                    topTwoArr[0] = array[j];
-                }
+    public int[] findTopTwoScores(int[] array) {
+        int firstNum = Integer.MIN_VALUE;
+        int secondNum = Integer.MIN_VALUE;
+
+        for (int num : array) {
+            if (num > firstNum) {
+                secondNum = firstNum;
+                firstNum = num;
+            } else if (secondNum < num && num < firstNum) {
+                secondNum = num;
             }
+
         }
-        int[] twoLargeScores = new int[2];
-        twoLargeScores[0] = topOneArr[0];
-        twoLargeScores[1] = topTwoArr[0];
-        return  twoLargeScores;
+        return new int[]{firstNum, secondNum};
     }
 }
+
+        /*
+        int firstNum = Integer.MIN_VALUE;
+        int secondNum = Integer.MIN_VALUE;
+
+        for (int num:array){
+            if (num > firstNum){
+                secondNum = firstNum;
+                firstNum = num;
+            } else if (num > secondNum && num < firstNum){
+                secondNum = num;
+            }
+        }
+        return new int[]{firstNum,secondNum};
+         */
+
+
+
